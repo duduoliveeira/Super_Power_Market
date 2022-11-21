@@ -1,0 +1,2 @@
+class SuperPowersController < ApplicationController
+end
