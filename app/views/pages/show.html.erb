@@ -1,0 +1,25 @@
+<div class= "container mt-5">
+  <div class= "titulo mb-3"><h1>This is the Super Power:</h1></div>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+  <h3><%= @super_power.name %></h3>
+  <h4>Description of the Super Power:</h4>
+  <p><%= @super_power.description %></p>
+  <h5>Price</h5>
+  <p>$<%= @super_power.price %></p>
+  <h5> This Super Power belongs to:</h5>
+  <p><% @teste = @super_power.user_id%></p>
+  <p><%= @users.find(@teste).email %></p>
+  <button type="button" class="btn btn-success">Buy</button> <button type="button" class="btn btn-primary">Contact</button>
+</div>
