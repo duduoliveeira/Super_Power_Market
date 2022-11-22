@@ -21,5 +21,5 @@
   <h5> This Super Power belongs to:</h5>
   <p><% @teste = @super_power.user_id%></p>
   <p><%= @users.find(@teste).email %></p>
-  <button type="button" class="btn btn-success">Buy</button> <button type="button" class="btn btn-primary">Contact</button>
+  <%= link_to 'Buy', new_super_power_order_path(@super_power.id), class: 'btn btn-sm btn-danger',  method: 'post' %> <button type="button" class="btn btn-primary">Contact</button>
 </div>
