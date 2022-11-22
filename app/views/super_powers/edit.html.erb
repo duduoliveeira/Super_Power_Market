@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <div class="row">
+      <h1>Add a Super Power</h1>
+
+      <div class="form">
+        <div class="container mt-3 mb-3 p-3 mb-2 bg-white text-dark">
+          <%= simple_form_for @super_power do |f| %>
+
+            <div class="form-label">
+              <%= f.label :name %>
+              <%= f.input_field :name %>
+            </div>
+
+            <div class="form-label">
+              <%= f.label :description %>
+              <%= f.input_field :description %>
+            </div>
+
+            <div class="form-label">
+              <%= f.label :price %>
+              <%= f.input_field :price %>
+            </div>
+
+            <div class="form-actions text-white-50">
+              <div class="btn btn-primary"><%= f.button :submit %></div>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
