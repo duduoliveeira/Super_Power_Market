@@ -8,6 +8,7 @@ class SuperPowersController < ApplicationController
 
   def show
     @users = User.all
+   @related = SuperPower.all.shuffle.first(3)
   end
 
   def ads
@@ -54,4 +55,5 @@ class SuperPowersController < ApplicationController
   def set_super_power
     @super_power = SuperPower.find(params[:id])
   end
+
 end

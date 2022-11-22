@@ -1,0 +1,9 @@
+<ul>
+<li><%= @super_power.name %></li>
+<li><%= @super_power.price %></li>
+</ul>
+<%= simple_form_for [@super_power, @order] do |f| %>
+<%= f.submit 'Buy', class: 'btn btn-sm btn-danger' %>
+<% end %>
+
+<%= link_to 'Back', super_power_path(@super_power), class: 'text-black' %>
