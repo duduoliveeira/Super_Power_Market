@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :super_powers
   has_many :user_orders, class_name: 'Order', foreign_key: 'user_id'
   has_many :owner_orders, class_name: 'Order', foreign_key: 'owner_id'
+
 end
