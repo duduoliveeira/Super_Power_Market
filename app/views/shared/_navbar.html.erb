@@ -25,7 +25,7 @@
               <%= link_to "Add Super Power", new_super_power_path, class: "dropdown-item" %>
               <%= link_to "My ads", ads_path, class: "dropdown-item" %>
               <%= link_to "My shopping", shopping_path, class: "dropdown-item" %>
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

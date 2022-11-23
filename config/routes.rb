@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/ads', to: 'super_powers#ads', as: 'ads'
 
   get '/shopping', to: 'orders#shopping', as: 'shopping'
+
+  get 'users/:id', to: 'users#show', as: 'user'
 end
