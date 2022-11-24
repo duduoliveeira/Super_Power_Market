@@ -8,7 +8,11 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
+    <% if @super_power.photo.attached? %>
       <%= cl_image_tag @super_power.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <img src="https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg" alt="">
+    <% end %>
     </div>
 </div>
  <p><strong>Sold by:   <%= @super_power.user.name%></strong> </p>
