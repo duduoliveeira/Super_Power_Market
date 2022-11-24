@@ -12,7 +12,7 @@ class SuperPowersController < ApplicationController
 
   def show
     @users = User.all
-    @related = SuperPower.all.sample.first(3)
+    @related = SuperPower.all.shuffle.first(3)
   end
 
   def ads
@@ -53,7 +53,7 @@ class SuperPowersController < ApplicationController
   private
 
   def super_power_params
-    params.require(:super_power).permit(:name, :description, :price, :img)
+    params.require(:super_power).permit(:name, :description, :price, :img, :photo)
   end
 
   def set_super_power

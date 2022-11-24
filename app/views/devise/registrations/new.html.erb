@@ -8,10 +8,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
-    <%= f.input :img,
-                autofocus: true,
-                placeholder: 'Url',
-                input_html: { autocomplete: "img" }%>
+    <%= f.input :photo, as: :file %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
