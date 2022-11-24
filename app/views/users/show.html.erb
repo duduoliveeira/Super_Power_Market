@@ -1,14 +1,14 @@
 <div class="container mt-2 text-center">
-<h1>Welcome to your profile!</h1>
+<h1>Your profile</h1>
 
-<img class="profilephoto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZLIxlvHo2UM4vujqiMRLUlbaSvhwwnFb0ZQ&usqp=CAU">
+<%= cl_image_tag @user.photo.key, height: 200, width: 200, radius: :max,  crop: :fill, class: 'mx-2' %>
 
 <h4><%= @user.name %> </h4>
 
+<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email%></p>
 
-<p>email cadastrado:<%= @user.email%></p>
-<p> Password: *********</p>
 
 <br>
-<%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-danger mt-1 mb-1' %>
+<%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-danger mt-1 mb-1' %>
 </div>
