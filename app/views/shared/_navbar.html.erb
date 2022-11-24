@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <form class="form-inline my-2 my-lg-0 d-flex m-2">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-            </form>
+          <%= form_with url: root_path, method: :get, class: 'd-flex' do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Search' %>
+          <%= submit_tag 'Search', class: 'btn btn-danger my-2 my-sm-0' %>
+          <% end %>
           </li>
 
           <li class="nav-item dropdown">
@@ -31,13 +31,13 @@
           </li>
         <% else %>
             <li class="nav-item active">
-            <form class="form-inline my-2 my-lg-0 d-flex">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <%= form_with url: root_path, method: :get, class: 'd-flex' do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Search' %>
+          <%= submit_tag 'Search', class: 'btn btn-danger my-2 my-sm-0' %>
+          <% end %>
+          </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
           </li>
         <% end %>
       </ul>
