@@ -7,6 +7,8 @@ class SuperPower < ApplicationRecord
                     user: [:name]
                   },
                   using: { tsearch: { prefix: true } }
+
   belongs_to :user
+  has_one_attached :photo
   validates :name, :description, :price, presence: true
 end
