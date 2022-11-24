@@ -1,32 +1,18 @@
- <div class="container mt-3">
-    <div class="row">
-      <h1>Add a Super Power</h1>
+<div class="container mt-2">
+<h3>Create new ad</h3>
+  <%= simple_form_for @super_power do |f| %>
+    <%= f.error_notification %>
 
-      <div class="form">
-        <div class="container mt-3 mb-3 p-3 mb-2 bg-white text-dark">
-          <%= simple_form_for @super_power do |f| %>
-
-            <div class="form-label">
-              <%= f.label :name %>
-              <%= f.input_field :name %>
-            </div>
-
-            <div class="form-label">
-              <%= f.label :description %>
-              <%= f.input_field :description %>
-            </div>
-
-            <div class="form-label">
-              <%= f.label :price %>
-              <%= f.input_field :price %>
-            </div>
-
-            <div class="form-actions text-white-50">
-              <div class="btn btn-primary"><%= f.button :submit %></div>
-            </div>
-
-          <% end %>
-        </div>
-      </div>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :img,
+                  placeholder: "URL" %>
     </div>
-  </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Create", class: "btn btn-sm btn-danger" %>
+    </div>
+  <% end %>
+</div>

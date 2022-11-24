@@ -12,34 +12,32 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <form class="form-inline my-2 my-lg-0 d-flex">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-            </form>
+          <%= form_with url: root_path, method: :get, class: 'd-flex' do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Search' %>
+          <%= submit_tag 'Search', class: 'btn btn-danger my-2 my-sm-0' %>
+          <% end %>
           </li>
 
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZLIxlvHo2UM4vujqiMRLUlbaSvhwwnFb0ZQ&usqp=CAU
+", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Add Super Power", new_super_power_path, class: "dropdown-item" %>
-              <%= link_to "My ads", ads_path, class: "dropdown-item" %>
-              <%= link_to "My shopping", shopping_path, class: "dropdown-item" %>
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Create New Ad", new_super_power_path, class: "dropdown-item" %>
+              <%= link_to "My Ads", ads_path, class: "dropdown-item" %>
+              <%= link_to "My Shopping", shopping_path, class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
             <li class="nav-item active">
-            <form class="form-inline my-2 my-lg-0 d-flex">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <%= form_with url: root_path, method: :get, class: 'd-flex' do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Search' %>
+          <%= submit_tag 'Search', class: 'btn btn-danger my-2 my-sm-0' %>
+          <% end %>
+          </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
           </li>
         <% end %>
       </ul>

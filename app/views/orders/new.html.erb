@@ -1,9 +1,17 @@
-<ul>
-<li><%= @super_power.name %></li>
-<li><%= @super_power.price %></li>
-</ul>
-<%= simple_form_for [@super_power, @order] do |f| %>
-<%= f.submit 'Buy', class: 'btn btn-sm btn-danger' %>
+<div class="container mt-2">
+<div class="card text-center">
+  <div class="card-header">
+    Order
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><strong><%= @super_power.name %> by <%=@super_power.user.name%></h5></strong>
+    <p class="card-text"> <strong>$ <%= @super_power.price %></p></strong>
+    <%= simple_form_for [@super_power, @order] do |f| %>
+<%= f.submit 'Buy', class: 'btn btn-danger' %>
 <% end %>
-
+  </div>
+  <div class="card-footer text-muted">
 <%= link_to 'Back', super_power_path(@super_power), class: 'text-black' %>
+  </div>
+</div>
+</div>

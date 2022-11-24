@@ -3,12 +3,16 @@ class SuperPowersController < ApplicationController
   before_action :set_super_power, only: %i[show edit update]
 
   def index
-    @super_powers = SuperPower.all
+    if params[:query].present?
+      @super_powers = SuperPower.search_by_name_and_description(params[:query])
+    else
+      @super_powers = SuperPower.all
+    end
   end
 
   def show
     @users = User.all
-   @related = SuperPower.all.shuffle.first(3)
+    @related = SuperPower.all.sample.first(3)
   end
 
   def ads
@@ -49,7 +53,7 @@ class SuperPowersController < ApplicationController
   private
 
   def super_power_params
-    params.require(:super_power).permit(:name, :description, :price)
+    params.require(:super_power).permit(:name, :description, :price, :img)
   end
 
   def set_super_power

@@ -1,0 +1,14 @@
+<div class="container mt-2 text-center">
+<h1>Welcome to your profile!</h1>
+
+<img class="profilephoto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZLIxlvHo2UM4vujqiMRLUlbaSvhwwnFb0ZQ&usqp=CAU">
+
+<h4><%= @user.name %> </h4>
+
+
+<p>email cadastrado:<%= @user.email%></p>
+<p> Password: *********</p>
+
+<br>
+<%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-danger mt-1 mb-1' %>
+</div>

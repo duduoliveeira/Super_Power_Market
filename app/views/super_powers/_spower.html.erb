@@ -1,0 +1,15 @@
+  <div class="container">
+    <div class="row">
+      <% @super_powers.each do |power| %>
+        <div class="col-2  p-1">
+          <div class="card" style='height: 180px;'>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class='card-title'><%= power.name %></h5>
+                <p class='card-text'><strong>$<%= power.price %></strong></p>
+                <%= link_to 'Ver Produto', super_power_path(power), class: 'btn btn-danger' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
