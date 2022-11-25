@@ -1,20 +1,20 @@
-<div class="container mt-2">
-  <div class="row">
+<div class="container mt-2 mb-2">
+  <div class="row justify-content-between">
     <% @super_powers.each do |power| %>
-      <div class="col-2  p-1">
-        <div class="card my-4" style='height: 100%;'>
+      <div class="col-3 p-1">
+        <div class="card my-4 " style='height: 100%;'>
         <% if power.photo.attached? %>
-        <%= cl_image_tag power.photo.key, class: 'card-img-top' %>
+        <div class='card-img-top' style='background-image: url(<%= cl_image_path(power.photo.key) %>)'></div>
         <div class="card-body d-flex flex-column justify-content-between">
               <h5 class='card-title'><%= power.name %></h5>
-              <p class='card-text'><strong>$<%= power.price %></strong></p>
+              <p class='card-text'><strong>$<%= power.price.to_s.gsub('.', ',') %>0</strong></p>
               <%= link_to 'View', super_power_path(power), class: 'btn btn-danger' %>
           </div>
         <% else %>
-        <img class='card-img-top' src="https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg" alt="">
+        <div class="card-img-top" style="background-image: url(https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg)"></div>
           <div class="card-body d-flex flex-column justify-content-between">
               <h5 class='card-title'><%= power.name %></h5>
-              <p class='card-text'><strong>$<%= power.price %></strong></p>
+              <p class='card-text'><strong>$<%=  power.price.to_s.gsub('.', ',') %>0</strong></p>
               <%= link_to 'View', super_power_path(power), class: 'btn btn-danger' %>
           </div>
         <% end %>

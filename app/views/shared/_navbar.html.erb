@@ -1,4 +1,4 @@
-<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon p-1">
   <div class="container-fluid">
     <%= link_to super_powers_path, class: "navbar-brand" do %>
       <%= image_tag "superhero.png" %>
@@ -11,13 +11,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item active m-2">
           <%= form_with url: super_powers_path, method: :get, class: 'd-flex' do %>
           <%= text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Search' %>
           <%= submit_tag 'Search', class: 'btn btn-danger my-2 my-sm-0' %>
           <% end %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown m-2">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
