@@ -1,7 +1,10 @@
 <div class="container mt-2 text-center">
 <h1>Your profile</h1>
-
+<% if @user.photo.attached? %>
 <%= cl_image_tag @user.photo.key, height: 200, width: 200, radius: :max,  crop: :fill, class: 'mx-2' %>
+<% else %>
+<%= image_tag 'profile.png', height: 200, width: 200, radius: :max,  crop: :fill, class: 'mx-2' %>
+<% end %>
 
 <h4><%= @user.name %> </h4>
 

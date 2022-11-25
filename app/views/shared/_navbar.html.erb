@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to super_powers_path, class: "navbar-brand" do %>
       <%= image_tag "superhero.png" %>
     <% end %>
 
@@ -18,7 +18,8 @@
           <% end %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "superhero.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Create New Ad", new_super_power_path, class: "dropdown-item" %>
               <%= link_to "My Ads", ads_path, class: "dropdown-item" %>
@@ -26,6 +27,16 @@
               <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
+            <% else %>
+             <%= image_tag 'profile.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Create New Ad", new_super_power_path, class: "dropdown-item" %>
+              <%= link_to "My Ads", ads_path, class: "dropdown-item" %>
+              <%= link_to "My Shopping", shopping_path, class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+            <% end %>
           </li>
         <% else %>
             <li class="nav-item active">
