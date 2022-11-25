@@ -19,7 +19,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%= cl_image_tag @user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Create New Ad", new_super_power_path, class: "dropdown-item" %>
               <%= link_to "My Ads", ads_path, class: "dropdown-item" %>

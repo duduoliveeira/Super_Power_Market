@@ -11,6 +11,7 @@ class SuperPowersController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @users = User.all
     @related = SuperPower.all.shuffle.first(3)
   end
