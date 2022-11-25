@@ -1,17 +1,19 @@
-<div class="container mt-2">
-<h3>Create new ad</h3>
-  <%= simple_form_for @super_power do |f| %>
+<div class= "container mt-5">
+  <div class= "mb-3 text-center">
+    <h3>CREATE NEW AD</h3>
+  </div>
+    <%= simple_form_for @super_power do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
+    <div class= "form-inputs">
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Create", class: "btn btn-sm btn-danger" %>
+    <div class= "form-actions">
+      <%= f.button :submit, "Create", class: "btn btn-danger" %>
     </div>
   <% end %>
 </div>
