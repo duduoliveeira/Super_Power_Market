@@ -1,0 +1,40 @@
+ <div class="banner" style="background-image: url(<%= asset_url "banner-photo.png" %>); background-size: cover; height: 550px;" >
+
+    <div class="container">
+      <h3>Superpower Store</h3>
+      <h1>If you're not happy, change it!</h1>
+      <%= link_to "Learn More", super_powers_path, class: 'btn btn-danger' %>
+    </div>
+  </div>
+
+  <!-- code a "How it works" section -->
+  <div class="container">
+    <h2 class="text-center">How it works</h2>
+    <div class="row">
+      <div class="col-4 p-2">
+          <div class="card" style="width: 100%;">
+              <div class="card-body">
+              <h5 class="card-title">Sign-up</h5>
+              <p class="card-text">Create your account.</p>
+              <%= link_to 'New account', new_user_registration_path, class: "card-link", class: 'btn btn-danger' %>
+              </div>
+            </div>
+            
+            <div class="col-4 p-2">
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+              <h4>Decide if you want to buy or sell. Or BOTH</h4>
+              <p>As easy as breathing, you can have a brand new Superpower, or extra cash!</p>
+              </div>
+            </div>
+
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+              <h4>Stress free</h4>
+              <p>Finally you will be able to be the best version of yourself.</p>
+            </div>
+          </div>
+
+    </div>
+  </div>
+</div>
