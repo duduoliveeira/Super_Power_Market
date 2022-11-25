@@ -12,6 +12,7 @@ class SuperPowersController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @users = User.all
     @related = SuperPower.all.sample(3)
   end
@@ -60,7 +61,7 @@ class SuperPowersController < ApplicationController
   private
 
   def super_power_params
-    params.require(:super_power).permit(:name, :description, :price, :img)
+    params.require(:super_power).permit(:name, :description, :price, :img, :photo)
   end
 
   def set_super_power
