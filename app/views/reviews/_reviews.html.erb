@@ -18,7 +18,11 @@
           <div class="profile">
             <!--img---->
             <div class="profile-img">
-              <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+              <% if review.user.photo.attached? %>
+                <%= cl_image_tag review.user.photo.key %>
+              <% else %>
+              <%= image_tag 'profile.png' %>
+              <% end %>
             </div>
             <!--name-and-username-->
             <div class="name-user">
