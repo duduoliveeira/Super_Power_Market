@@ -1,0 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+
+$roboto-slab: 'Roboto Slab', serif;
+$open-sans: 'Open Sans', sans-serif;
+
+.card-link .btn .btn-danger{
+  font-family: $roboto-slab;
+  font-weight: normal;
+}
