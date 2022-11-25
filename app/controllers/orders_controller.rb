@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
 
   def shopping
     @orders = Order.where(user_id: current_user)
-
   end
 
   private
