@@ -1,36 +1,42 @@
-    <body><section id="testimonials">
-        <div class="testimonial-heading">
-            <h4>Clients say about this Super Power:</h4>
-        </div>
-        <!--testimonials-box-container------>
-        <div class="testimonial-box-container">
-            <!--BOX-1-------------->
-            <div class="testimonial-box">
-                <!--top------------------------->
-                <div class="box-top">
-                    <!--profile----->
-                    <div class="profile">
-                        <!--img---->
-                        <div class="profile-img">
-                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" width="60" height="60"/>
-                        </div>
-                        <% if @super_power.reviews.empty? %>
-                      <small><em class="text-muted">Be the first one to review this Super Power</em></small>
+<body>
+  <section id="testimonials">
+    <!--heading--->
+    <div class="testimonial-heading">
+      <span>Comments</span>
+    </div>
+     <% if @super_power.reviews.empty? %>
+                      <small><em class="text-muted"> No comments yet. Be the first one to review this Super Power in the next field</em></small>
                         <% end %>
-                        <%@super_power.reviews.each do |review|%>
-                        <div class="name-user">
-                            <strong><%=review.user.name %></strong>
-                        </div>
-                    </div>
-                    <!--reviews------>
-                     <div>
-          <% review.rating.times do %>
-            <i class="fas fa-star star-yellow"></i>
-          <% end %>
-                </div>
-                <!--Comments---------------------------------------->
-                <div class="client-comment">
-                    <p><%= review.comment%></p>
-                </div>
-                <%end%>
+    <!--testimonials-box-container------>
+    <%@super_power.reviews.each do |review|%>
+    <div class="testimonial-box-container">
+      <!--BOX-1-------------->
+      <div class="testimonial-box">
+        <!--top------------------------->
+        <div class="box-top">
+          <!--profile----->
+          <div class="profile">
+            <!--img---->
+            <div class="profile-img">
+              <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
             </div>
+            <!--name-and-username-->
+            <div class="name-user">
+              <strong><%=review.user.name%></strong>
+              <span><%=review.user.email%></span>
+            </div>
+          </div>
+          <!--reviews------>
+          <div class="reviews"> <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+         <%end%>
+          </div>
+        </div>
+        <!--Comments---------------------------------------->
+        <div class="client-comment">
+          <p><%= review.comment%></p>
+        </div>
+      </div>
+    <%end%>
+  </section>
+</body>
