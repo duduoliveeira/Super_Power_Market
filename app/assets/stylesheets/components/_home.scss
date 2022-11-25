@@ -1,1 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 
+$roboto-slab: 'Roboto Slab', serif;
+$open-sans: 'Open Sans', sans-serif;
+
+
+.text-banner{
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 20px;
+ h1, h3{
+  font-family: $roboto-slab;
+  font-weight: normal;
+  margin-left: 25px;
+}
+}
+
+.text-center {
+  font-family: $roboto-slab;
+  font-weight: normal;
+}
+
+.card-title {
+  font-family: $open-sans;
+  font-weight: normal;
+}
+
+.card-text {
+  font-family: $open-sans;
+  font-weight: normal;
+}
+
+.card-body {
+  border-radius: 5px;
+}
