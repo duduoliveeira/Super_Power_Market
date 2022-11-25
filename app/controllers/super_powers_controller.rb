@@ -5,27 +5,30 @@ class SuperPowersController < ApplicationController
   def index
     if params[:query].present?
       @super_powers = SuperPower.search_by_name_and_description(params[:query])
+      skip_policy_scope
     else
-      @super_powers = SuperPower.all
+      @super_powers = policy_scope(SuperPower)
     end
   end
 
   def show
     @users = User.all
-    @related = SuperPower.all.sample.first(3)
+    @related = SuperPower.all.sample(3)
   end
 
   def ads
-    @super_powers = SuperPower.where(user: current_user)
+    @super_powers = policy_scope(SuperPower).where(user: current_user)
   end
 
   def new
     @super_power = SuperPower.new
+    authorize @super_power
   end
 
   def create
     @super_power = SuperPower.new(super_power_params)
     @super_power.user_id = current_user.id
+    authorize @super_power
     if @super_power.save
       redirect_to ads_path
     else
@@ -35,8 +38,12 @@ class SuperPowersController < ApplicationController
 
   def destroy
     @super_power = SuperPower.find(params[:id])
-    @super_power.destroy
-    redirect_to ads_path, notice: 'Super Power destroyed'
+    authorize @super_power
+    if @super_power.destroy
+      redirect_to ads_path, notice: 'Super Power destroyed'
+    else
+      render "new", status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -58,6 +65,7 @@ class SuperPowersController < ApplicationController
 
   def set_super_power
     @super_power = SuperPower.find(params[:id])
+    authorize @super_power
   end
 
 end
