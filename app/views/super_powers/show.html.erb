@@ -36,7 +36,9 @@
   <div class="card-body">
     <h5 class="card-title">Price: $<%= @super_power.price %></h5>
     <% if current_user %>
-      <%= link_to 'Buy', new_super_power_order_path(@super_power), class: 'btn btn-danger',  method: 'post' %>
+      <% if current_user != @super_power.user %>
+        <%= link_to 'Buy', new_super_power_order_path(@super_power), class: 'btn btn-danger',  method: 'post' %>
+      <% end %>
       <% if policy(@super_power).edit? %>
         <%= link_to 'Edit', edit_super_power_path(@super_power), class: 'btn btn-danger' %>
         <%= link_to 'Delete', @super_power, data: {'turbo-method': :delete, 'turbo-confirm': 'Are you sure?'}, class: 'btn btn-danger' %>
