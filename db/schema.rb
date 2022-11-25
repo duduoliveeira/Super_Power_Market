@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_143626) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_162214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -54,6 +54,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_143626) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "super_power_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["super_power_id"], name: "index_reviews_on_super_power_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "super_powers", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -84,5 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_143626) do
   add_foreign_key "orders", "super_powers"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "users", column: "owner_id"
+  add_foreign_key "reviews", "super_powers"
+  add_foreign_key "reviews", "users"
   add_foreign_key "super_powers", "users"
 end
