@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "super_powers#home"
+  root to: "pages#home"
 
   resources :super_powers do
     resources :orders, only: %i[create new]

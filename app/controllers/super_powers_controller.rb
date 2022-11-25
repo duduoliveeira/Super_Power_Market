@@ -1,8 +1,6 @@
 class SuperPowersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_super_power, only: %i[show edit update]
-  def home
-  end
 
   def index
     if params[:query].present?
