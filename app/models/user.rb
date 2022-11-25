@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :user_orders, class_name: 'Order', foreign_key: 'user_id'
   has_many :owner_orders, class_name: 'Order', foreign_key: 'owner_id'
   has_one_attached :photo
-
 end
