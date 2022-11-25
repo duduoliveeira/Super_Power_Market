@@ -13,5 +13,6 @@
 
 
 <br>
+<% session["user_return_to"] = user_path(current_user) %>
 <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-danger mt-1 mb-1' %>
 </div>
