@@ -19,7 +19,7 @@ O projeto foi apresentado (25/11/2022) mas ainda pode continuar a ser desenvolvi
 
 - [x] Concepção
 - [x] Landpage
-- [x] Log in / Sign in de acesso (Devise)
+- [x] Acessos (Devise)
 - [x] Permissões (Pundit)
 - [x] Cadastro de poderes
 - [ ] Padronizar imagens
