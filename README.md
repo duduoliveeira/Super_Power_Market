@@ -13,6 +13,10 @@
 > Login: sonic@lewagon.com<br>
 > Password: 123123 <br>
 
+### Como funciona
+
+- Assim como nos demais market places, o usário, ao realizar o cadastro, ele pode tanto anunciar produtos, como também comprá-los. É um aplicativo simples, com boas funcionalidades, como páginas para ver suas compras realizadas, anúncios e profile.
+
 ### Ajustes e melhorias
 
 O projeto foi apresentado (25/11/2022) mas ainda pode continuar a ser desenvolvido:
