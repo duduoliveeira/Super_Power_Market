@@ -1,18 +1,18 @@
 databases:
-  - name: super_power_market
-    databaseName: super_power_market
-    user: super_power_market
+  - name: mysite
+    databaseName: mysite
+    user: mysite
 
 services:
   - type: web
-    name: super_power_market
+    name: mysite
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: super_power_market
+          name: mysite
           property: connectionString
-      - key: 2622d18b9e15255ffbf53cd0f314cf5b
+      - key: RAILS_MASTER_KEY
         sync: false
